@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8" />
+<head>
+	<link rel="stylesheet" type="text/css" href="../master-style.min.css" />
+	<title>ZAG - Flooring Calculator</title>
+</head>
+
+<h1>Flooring Calculator</h1>
+
+<body>
+	<h3>Enter the Length of the Floor</h3>
+	<input type="text" id="length" placeholder="length" />
+
+	<h3>Enter the Width of the Floor</h3>
+	<input type="text" id="width" placeholder="width" />
+
+	<h3>Percent Overage as an INT between 0 and 20</h3>
+	<input type="text" id="overage" placeholder="0 - 20" />
+
+	<h3>--- Results ---</h3>
+	<p>
+		Feet:
+		<input type="text" id="resultft" value="" readonly />
+
+		Yards:
+		<input type="text" id="resultyrd" value="" readonly />
+	</p>
+
+	<input type="button" value="Compute" id="computebtn" />
+	<input type="button" value="Reset" id="resetbtn" />
+
+	<script src="./script.js"></script>
+</body>
+</html>
