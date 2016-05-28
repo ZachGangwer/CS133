@@ -2,6 +2,7 @@ $bckgrnd:	#fff;
 $hdrclr:	#29c5ff;
 
 $green:		#00c838;
+$blue:		#0007a7;
 $red:		#d20000;
 $grey:		#ececec;
 
@@ -40,10 +41,13 @@ ul {
 	background-color: $grey;
 }
 
-#output {
+#blue {
+	background-color: $blue;
+	color: $grey;
+}
+
+#green {
 	background-color: $green;
-	text-align: left;
-	display: block;
 }
 
 //Legacy Support
@@ -56,3 +60,9 @@ ul {
 	background-color: $red;
 	color: $grey;
 }
+
+// #output {
+// 	background-color: $green;
+// 	text-align: left;
+// 	display: block;
+// }

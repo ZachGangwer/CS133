@@ -4,7 +4,7 @@ window.onload = function () {
 		let direction = document.querySelector("input[name ='resultType']:checked").value;
 		let output = convert(input, direction);
 
-		write(output, direction);
+		write(output);
 	};
 };
 
@@ -18,35 +18,65 @@ function convert(enn, direction) {
 		return decimal(enn);
 
 	default:
-		return "error";
+		return {
+			"value": 	"error",
+			"id":		"red"
+		};
 	}
 }
 
 function binary(enn) {
 	let output = enn + " => ";
-	let temp = 1;
 
 	do {
-		output += enn % 2;
-		enn /= 2;
-		temp = enn;
-	} while (temp > 0);
+		output += (enn % 2);
+		enn = Math.trunc(enn/2);
+	} while (enn > 0);
 
-	return [output.toString(), "green"];
+	return {
+		"value": output.toString(),
+		"id": "green"
+	};
 }
+
+/**
+ * DECIMAL
+ * Takes in a binary number and converts it to decimal
+ * @param  {STRING} enn A number in binary form
+ * @return {OBJECT}     Returns a dictionary with the number in decimal,
+ *                              as well as the id to give the output tag
+ */
 function decimal(enn) {
-	let output = "DECIMAL: " + enn;
+	let output = enn + " => ";
+	let temp = 0;
+	enn = enn.trim();
+	let counter = enn.length-1;
 
-	return [output, "blue"];
+	for (let x of enn) {
+		temp += (x * (Math.pow(2, counter)));
+		counter -= 1;
+	}
+
+	output += temp;
+
+	return {
+		"value": output.toString(),
+		"id": "blue"
+	};
 }
 
-function write(output, id) {
+/**
+ * WRITE
+ * Prints a 'value' to a ul and gives it the 'id' attribute passed in the 'param'
+ * @param  {OBJECT} output A dictionary containing a 'value' and an 'id'
+ */
+function write(output) {
 
 	var li = document.createElement("li");
 	var section = document.getElementById("output");
 
-	li.appendChild(document.createTextNode(output));
-	li.setAttribute("id", id);
+	li.appendChild(document.createTextNode(output["value"]));
+	li.setAttribute("id", output["id"]);
 
 	section.appendChild(li);
 }
