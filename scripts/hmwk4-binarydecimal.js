@@ -70,13 +70,13 @@ function decimal(enn) {
  * Prints a 'value' to a ul and gives it the 'id' attribute passed in the 'param'
  * @param  {OBJECT} output A dictionary containing a 'value' and an 'id'
  */
-function write(output) {
+function write(obj) {
 
 	var li = document.createElement("li");
 	var section = document.getElementById("output");
 
-	li.appendChild(document.createTextNode(output["value"]));
-	li.setAttribute("id", output["id"]);
+	li.appendChild(document.createTextNode(obj["value"]));
+	li.setAttribute("id", obj["id"]);
 
 	section.appendChild(li);
 }
