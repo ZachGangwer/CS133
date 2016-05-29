@@ -1,44 +1,49 @@
 window.onload = function () {
 	document.getElementById("btn").onclick = function () {
-		var input = document.getElementById("input").value;
-		input = sanitize(input);
+		let input = document.getElementById("input").value;
 
-		countem(input);
+		let output = countem(input);
+		write(output);
 	};
 };
 
-function sanitize(num) {
-	if (isNaN(num)) {
-		num = num.toString();
-		if (isNaN(num)) return NaN;
-		else return num;
-	}
-	else return num;
-}
-
 function countem(string) {
-	clearOutput();
-	var vowels = ["a", "e", "i", "o", "u"];
-	var output;
+	clearOutput("output");
+	let output = 0;
 
-	for (var x of string) {
-		for (var y of vowels) {
-			if (x === y) output++;
+	for (let index of string) {
+		switch (index) {
+		case "a":
+			output++;
+			break;
+		case "e":
+			output++;
+			break;
+		case "i":
+			output++;
+			break;
+		case "o":
+			output++;
+			break;
+		case "u":
+			output++;
+			break;
+		default:
+
 		}
 	}
-
-	write(output);
+	return output;
 }
 
 function clearOutput(destination) {
 	document.getElementById(destination).innerHTML = "";
 }
 
-function write(output) {
+function write(obj) {
+	let li = document.createElement("li");
+	let section = document.getElementById("output");
 
-	var li = document.createElement("li");
-	var section = document.getElementById("output");
+	li.appendChild(document.createTextNode(obj));
 
-	li.appendChild(document.createTextNode(output));
 	section.appendChild(li);
 }
