@@ -1,0 +1,68 @@
+$bckgrnd:	#fff;
+$hdrclr:	#29c5ff;
+
+$green:		#00c838;
+$blue:		#0007a7;
+$red:		#d20000;
+$grey:		#ececec;
+
+body {
+	background-color: $bckgrnd;
+	padding: 5px;
+	padding-bottom: 10px;
+	padding-top: 1px;
+	text-align: center;
+}
+
+h1 {
+	background-color: $hdrclr;
+	padding: 5px;
+	padding-top: .1px;
+}
+
+
+ul {
+	list-style-type: none;
+}
+
+
+#btn {
+	display: inline;
+	padding: 15px;
+	text-align: center;
+}
+
+#record {
+	display: block;
+	text-align: left;
+}
+
+#input {
+	background-color: $grey;
+}
+
+#blue {
+	background-color: $blue;
+	color: $grey;
+}
+
+#green {
+	background-color: $green;
+}
+
+//Legacy Support
+#true {					// Use #green
+	background-color: $green;
+	color: $grey;
+}
+
+#false {				// Use #red
+	background-color: $red;
+	color: $grey;
+}
+
+// #output {
+// 	background-color: $green;
+// 	text-align: left;
+// 	display: block;
+// }
